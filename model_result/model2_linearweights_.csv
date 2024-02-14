@@ -1,0 +1,20 @@
+Layer Values,Parameter Name,Shape
+-0.29900277,fc1.weight,1x18
+-0.65325093,fc1.weight,1x18
+0.48748556,fc1.weight,1x18
+0.27237207,fc1.weight,1x18
+-0.34975767,fc1.weight,1x18
+0.5238657,fc1.weight,1x18
+-1.4056168,fc1.weight,1x18
+-0.48298866,fc1.weight,1x18
+0.42409346,fc1.weight,1x18
+-0.1888673,fc1.weight,1x18
+0.18818583,fc1.weight,1x18
+0.0023066166,fc1.weight,1x18
+0.2455469,fc1.weight,1x18
+-0.1510578,fc1.weight,1x18
+1.0006659,fc1.weight,1x18
+0.11267355,fc1.weight,1x18
+0.43245006,fc1.weight,1x18
+-0.23007141,fc1.weight,1x18
+0.20166297,fc1.bias,1

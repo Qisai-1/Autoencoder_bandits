@@ -75,7 +75,28 @@ if args.model == '3':
     # decoder_output_size = 34
     hidden_size = 34
     
-    
+
+def save_model_weights_to_csv(model, file_name):
+    model_params = []
+
+    # Iterate over model parameters
+    for name, param in model.named_parameters():
+        # Flatten parameter values
+        param_values = param.data.cpu().numpy().flatten()
+        # Shape of the parameter
+        shape_str = 'x'.join(map(str, param.size()))
+
+        # For each value, append a row with the value, parameter name, and shape
+        for value in param_values:
+            model_params.append([value, name, shape_str])
+
+    # Create DataFrame
+    df = pd.DataFrame(model_params, columns=['Layer Values', 'Parameter Name', 'Shape'])
+
+    # Save DataFrame to CSV
+    df.to_csv(file_name, index=False)
+# Usage
+
     
 # # Initialize model instances
 # autoencoder = Autoencoder(latent_dim,feature_size,decoder_output_size)
@@ -90,7 +111,9 @@ saved_states = torch.load(model_path, map_location=device)
 # linear_model.load_state_dict(saved_states['linear_model'])
 autoencoder = saved_states['autoencoder']
 linear_model = saved_states['linear_model']
-
+save_model_weights_to_csv(linear_model, f'model_result/model{args.model}_linearweights_.csv')
+save_model_weights_to_csv(autoencoder, f'model_result/model{args.model}_autoencoderweights_.csv')
+   
 
 autoencoder.to(device)
 linear_model.to(device)
